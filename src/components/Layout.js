@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
               </Link>
               {isLoggedIn ? (
                 <>
-                  {user?.isAdmin ? (
+                  {user?.is_admin ? (
                     <Link to="/admin" className="hover:text-red-500 transition duration-300">
                       Admin
                     </Link>
@@ -109,7 +109,7 @@ const Layout = ({ children }) => {
                         Mon Profil
                       </Link>
                     </li>
-                    {user?.isAdmin && (
+                    {user?.is_admin && (
                       <li>
                         <Link to="/admin" className="text-gray-400 hover:text-white transition duration-300">
                           Admin

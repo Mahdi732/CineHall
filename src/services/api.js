@@ -24,7 +24,6 @@ export const authService = {
     try {
       const response = await api.post('/login', credentials);
       if (response.data && response.data.token) {
-        localStorage.setItem('token', response.data.token);
         return response;
       }
       throw new Error('Invalid response from server');

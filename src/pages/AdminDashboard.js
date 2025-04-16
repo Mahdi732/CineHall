@@ -32,7 +32,7 @@ const AdminDashboard = () => {
   };
 
   useEffect(() => {
-    if (!user || !user.isAdmin) {
+    if (!user || !user.is_admin) {
       navigate('/');
       return;
     }

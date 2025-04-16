@@ -24,6 +24,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/booking/:id" element={<Booking />} />
+            <Route path="/bookings" element={<Booking />} />
             <Route path="/delete-account" element={<DeleteAccount />} />
             
             {/* Admin Routes */}

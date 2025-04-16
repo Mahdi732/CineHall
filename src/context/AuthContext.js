@@ -18,6 +18,7 @@ export const AuthProvider = ({ children }) => {
           setIsLoggedIn(true);
         } catch (err) {
           localStorage.removeItem('token');
+          localStorage.removeItem('user');
           setIsLoggedIn(false);
           setUser(null);
         }
@@ -40,6 +41,7 @@ export const AuthProvider = ({ children }) => {
       }
       throw new Error('Invalid response from server');
     } catch (err) {
+      console.error('Login Error:', err);
       throw err;
     }
   };
@@ -60,6 +62,7 @@ export const AuthProvider = ({ children }) => {
     try {
       await authService.deleteUser(credentials);
       localStorage.removeItem('token');
+      localStorage.removeItem('user');
       setIsLoggedIn(false);
       setUser(null);
       return true;

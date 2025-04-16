@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 
@@ -10,7 +10,17 @@ const Login = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { login } = useContext(AuthContext);
+  const { login, user, isLoggedIn } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (isLoggedIn && user) {
+      if (user.is_admin) {
+        navigate('/admin');
+      } else {
+        navigate('/');
+      }
+    }
+  }, [isLoggedIn, user, navigate]);
 
   const handleChange = (e) => {
     setFormData({
@@ -25,17 +35,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const success = await login(formData);
-      if (success) {
-        // Get the user from AuthContext
-        const user = JSON.parse(localStorage.getItem('user'));
-        // Redirect based on user role
-        if (user && user.is_admin) {
-          navigate('/admin');
-        } else {
-          navigate('/');
-        }
-      }
+      await login(formData);
     } catch (err) {
       setError(err.response?.data?.message || 'Invalid credentials. Please try again.');
     } finally {
