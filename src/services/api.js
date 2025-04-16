@@ -43,9 +43,11 @@ export const authService = {
 
 export const filmService = {
   getFilms: () => api.get('/film'),
+  getFilm: (id) => api.get(`/film/${id}`),
   createFilm: (filmData) => api.post('/film', filmData),
   updateFilm: (id, filmData) => api.put(`/film/${id}`, filmData),
   deleteFilm: (id) => api.delete(`/film/${id}`),
+  getStats: () => api.get('/admin/stats'),
 };
 
 export const sessionService = {

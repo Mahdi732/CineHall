@@ -30,9 +30,15 @@ const Layout = ({ children }) => {
               </Link>
               {isLoggedIn ? (
                 <>
-                  <Link to="/profile" className="hover:text-red-500 transition duration-300">
-                    Mon Profil
-                  </Link>
+                  {user?.isAdmin ? (
+                    <Link to="/admin" className="hover:text-red-500 transition duration-300">
+                      Admin
+                    </Link>
+                  ) : (
+                    <Link to="/profile" className="hover:text-red-500 transition duration-300">
+                      Mon Profil
+                    </Link>
+                  )}
                   <Link to="/bookings" className="hover:text-red-500 transition duration-300">
                     Mes Réservations
                   </Link>
@@ -97,11 +103,20 @@ const Layout = ({ children }) => {
                   </Link>
                 </li>
                 {isLoggedIn && (
-                  <li>
-                    <Link to="/profile" className="text-gray-400 hover:text-white transition duration-300">
-                      Mon Profil
-                    </Link>
-                  </li>
+                  <>
+                    <li>
+                      <Link to="/profile" className="text-gray-400 hover:text-white transition duration-300">
+                        Mon Profil
+                      </Link>
+                    </li>
+                    {user?.isAdmin && (
+                      <li>
+                        <Link to="/admin" className="text-gray-400 hover:text-white transition duration-300">
+                          Admin
+                        </Link>
+                      </li>
+                    )}
+                  </>
                 )}
               </ul>
             </div>

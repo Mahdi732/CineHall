@@ -9,6 +9,8 @@ import Register from './pages/Register';
 import Profile from './pages/Profile';
 import Booking from './pages/Booking';
 import DeleteAccount from './pages/DeleteAccount';
+import AdminDashboard from './pages/AdminDashboard';
+import AdminFilmForm from './pages/AdminFilmForm';
 
 function App() {
   return (
@@ -23,7 +25,11 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/booking/:id" element={<Booking />} />
             <Route path="/delete-account" element={<DeleteAccount />} />
-            {/* Add more routes as needed */}
+            
+            {/* Admin Routes */}
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/admin/films/new" element={<AdminFilmForm />} />
+            <Route path="/admin/films/:id/edit" element={<AdminFilmForm />} />
           </Routes>
         </Layout>
       </Router>
