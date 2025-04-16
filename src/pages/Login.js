@@ -30,7 +30,7 @@ const Login = () => {
         navigate('/');
       }
     } catch (err) {
-      setError(err.message || 'An error occurred during login');
+      setError(err.response?.data?.message || 'Invalid credentials. Please try again.');
     } finally {
       setLoading(false);
     }

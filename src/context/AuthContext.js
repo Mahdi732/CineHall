@@ -31,10 +31,13 @@ export const AuthProvider = ({ children }) => {
   const login = async (credentials) => {
     try {
       const response = await authService.login(credentials);
-      const profileResponse = await authService.getProfile();
-      setUser(profileResponse.data);
-      setIsLoggedIn(true);
-      return true;
+      if (response.data && response.data.token) {
+        localStorage.setItem('token', response.data.token);
+        setUser(response.data.user);
+        setIsLoggedIn(true);
+        return true;
+      }
+      throw new Error('Invalid response from server');
     } catch (err) {
       throw err;
     }
