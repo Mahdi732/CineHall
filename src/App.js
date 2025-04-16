@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
 import Booking from './pages/Booking';
+import DeleteAccount from './pages/DeleteAccount';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/booking/:id" element={<Booking />} />
+            <Route path="/delete-account" element={<DeleteAccount />} />
             {/* Add more routes as needed */}
           </Routes>
         </Layout>
