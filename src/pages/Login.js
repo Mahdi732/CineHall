@@ -27,7 +27,14 @@ const Login = () => {
     try {
       const success = await login(formData);
       if (success) {
-        navigate('/');
+        // Get the user from AuthContext
+        const user = JSON.parse(localStorage.getItem('user'));
+        // Redirect based on user role
+        if (user && user.is_admin) {
+          navigate('/admin');
+        } else {
+          navigate('/');
+        }
       }
     } catch (err) {
       setError(err.response?.data?.message || 'Invalid credentials. Please try again.');

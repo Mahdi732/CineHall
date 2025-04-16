@@ -33,6 +33,7 @@ export const AuthProvider = ({ children }) => {
       const response = await authService.login(credentials);
       if (response.data && response.data.token) {
         localStorage.setItem('token', response.data.token);
+        localStorage.setItem('user', JSON.stringify(response.data.user));
         setUser(response.data.user);
         setIsLoggedIn(true);
         return true;
@@ -47,6 +48,7 @@ export const AuthProvider = ({ children }) => {
     try {
       await authService.logout();
       localStorage.removeItem('token');
+      localStorage.removeItem('user');
       setIsLoggedIn(false);
       setUser(null);
     } catch (err) {
