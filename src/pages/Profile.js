@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { authService } from '../services/api';
 
@@ -105,11 +105,11 @@ const Profile = () => {
       ) : (
         <div>
           <div className="mb-4">
-            <h3 className="text-lg font-semibold">Name</h3>
+            <h3 className="text-lg font-semibold text-gray-700">Name</h3>
             <p className="text-gray-600">{user.name}</p>
           </div>
           <div className="mb-4">
-            <h3 className="text-lg font-semibold">Email</h3>
+            <h3 className="text-lg font-semibold text-gray-700">Email</h3>
             <p className="text-gray-600">{user.email}</p>
           </div>
           <div className="flex space-x-4">
@@ -119,12 +119,12 @@ const Profile = () => {
             >
               Edit Profile
             </button>
-            <button
-              onClick={handleDelete}
+            <Link
+              to="/delete-account"
               className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700"
             >
               Delete Account
-            </button>
+            </Link>
           </div>
         </div>
       )}

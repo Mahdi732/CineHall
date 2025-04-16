@@ -54,8 +54,20 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const deleteAccount = async (credentials) => {
+    try {
+      await authService.deleteUser(credentials);
+      localStorage.removeItem('token');
+      setIsLoggedIn(false);
+      setUser(null);
+      return true;
+    } catch (err) {
+      throw err;
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ isLoggedIn, user, login, logout, loading }}>
+    <AuthContext.Provider value={{ isLoggedIn, user, login, logout, deleteAccount, loading }}>
       {children}
     </AuthContext.Provider>
   );
