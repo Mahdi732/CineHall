@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# 🎬 CinéHall – Application Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bienvenue dans le dépôt frontend de **CinéHall**, une application web intuitive permettant aux utilisateurs de consulter les films, réserver leurs sièges de cinéma, gérer leurs billets et leur profil personnel. Cette interface consomme l’API CinéHall développée séparément.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Objectif du projet
 
-### `npm start`
+Développer une application **responsive**, **moderne** et **ergonomique** en **React.js** (ou JavaScript natif/Vue.js selon le choix) qui interagit avec l’API CinéHall et offre les fonctionnalités suivantes :
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Consultation des films et des séances disponibles
+- Réservation et paiement des places
+- Téléchargement de billets avec QR Code
+- Gestion du profil utilisateur et des réservations
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🧩 Fonctionnalités principales
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 👤 Gestion des utilisateurs
+- Inscription / Connexion via **JWT**
+- Modification et suppression de profil
+- Affichage des informations personnelles
 
-### `npm run build`
+### 🎞️ Films & séances
+- Liste des films (titre, description, image, durée, genre, âge minimum…)
+- Détails et bande-annonce intégrée
+- Séances par film avec informations détaillées
+- Filtrage des séances (Normale / VIP)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🪑 Réservation de sièges
+- Visualisation graphique de la salle et des sièges
+- Sélection manuelle des sièges (support spécial pour sièges couple)
+- Calcul automatique du prix
+- Avertissement de réservation expirant dans 15 min
+- Suivi du statut de réservation (réservé, payé, expiré)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 💳 Paiement
+- Simulation de paiement (Stripe, PayPal, ou interface fictive)
+- Validation et mise à jour du statut après paiement
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 🎟️ Billet électronique
+- Affichage détaillé du billet
+- Génération d’un **QR Code**
+- Téléchargement du billet au format **PDF**
 
-### `npm run eject`
+### 📁 Espace utilisateur
+- Liste des réservations (passées et en cours)
+- Téléchargement de billets
+- Annulation ou modification de réservation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🛠️ Technologies utilisées
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- [React.js](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/) (ou Bootstrap)
+- [Axios](https://axios-http.com/) pour la communication avec l’API
+- [React Router](https://reactrouter.com/) pour la navigation
+- [JWT](https://jwt.io/) pour l’authentification
+- [QRCode.react](https://github.com/zpao/qrcode.react) pour les QR Codes
+- [jspdf](https://github.com/parallax/jsPDF) pour la génération de PDF
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 🧪 Lancer le projet en local
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 1. Cloner le dépôt
+```bash
+git clone https://github.com/Mahdi732/CineHall.git
+cd CineHall
